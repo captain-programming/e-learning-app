@@ -4,10 +4,10 @@ export const Style = StyleSheet.create({
   main: {
     margin: 10,
     flex: 1,
-    padding: 20,
+    padding: 20
   },
   imageBox:{
-    flex: 3.5,
+    flex: 3.0,
     alignItems: "center",
     justifyContent: "center"
   },

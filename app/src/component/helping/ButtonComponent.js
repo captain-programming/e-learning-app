@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const ButtonComponent = ({color, bg, title, onPress}) => {
+const ButtonComponent = ({color, bg, title, onPress, fontWeight}) => {
 
   const styles = StyleSheet.create({
     button: {
@@ -12,7 +12,7 @@ const ButtonComponent = ({color, bg, title, onPress}) => {
     },
     buttonText: {
       color: color,
-      fontWeight: 500
+      fontWeight: fontWeight || 500
     }
   });
 

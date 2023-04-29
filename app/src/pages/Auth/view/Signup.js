@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { BackHandler, Image, Text, View } from 'react-native';
-import { Style } from './style/signup';
-import registerImg from "../../assets/login/register.png";
-import ButtonComponent from '../../component/helping/ButtonComponent';
-import InputHelper from '../../component/helping/InputHelper';
+import { Style } from '../style/signup';
+import registerImg from "../../../assets/login/register.png";
+import ButtonComponent from '../../../component/helping/ButtonComponent';
+import InputHelper from '../../../component/helping/InputHelper';
 import { useDispatch } from 'react-redux';
-import { userSignup } from '../../store/Auth/action';
+import { userSignup } from '../../../store/Auth/action';
 
 const Signup = ({navigation}) => {
   const [step, setStep] =useState(1);

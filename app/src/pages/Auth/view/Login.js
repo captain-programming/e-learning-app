@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Image, Text, TextInput, View } from 'react-native';
-import { Style } from './style/login';
-import loginImg from "../../assets/login/login.png";
-import ButtonComponent from '../../component/helping/ButtonComponent';
-import InputHelper from '../../component/helping/InputHelper';
+import { Image, Text, View } from 'react-native';
+import { Style } from '../style/login';
+import loginImg from "../../../assets/login/login.png";
+import ButtonComponent from '../../../component/helping/ButtonComponent';
+import InputHelper from '../../../component/helping/InputHelper';
 import { useDispatch } from 'react-redux';
-import { userLogin } from '../../store/Auth/action';
+import { userLogin } from '../../../store/Auth/action';
 
 const Login = ({navigation}) => {
   const [formData, setFormData] = useState({email: "", password: ""});
@@ -30,14 +30,13 @@ const Login = ({navigation}) => {
     setErrors({
         ...temp,
     });
-
     return Object.values(temp).every((x) => x === "");
 };
 
   const loginFun = () => {
-    // navigation.navigate("Home")
     if(validate(formData)){
-      dispatch(userLogin(formData, { setFormData }));
+      dispatch(userLogin(formData));
+      setFormData({email: "", password: ""});
     }
   };
   const registerAccount = () => navigation.navigate("Register");

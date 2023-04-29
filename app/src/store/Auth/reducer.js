@@ -2,6 +2,8 @@ import { AUTH_USER_LOGIN, AUTH_USER_SIGNUP, ERROR, LOADING, TOAST_CLEANER } from
 
 const initial = {
   login: false,
+  token: "",
+  userDetails: "",
   signup: false,
   loading: false,
   toastMessage: "",
@@ -14,7 +16,7 @@ export const AuthReducer = (state=initial, {type, payload})=>{
   switch(type){
     case LOADING : return { ...state, loading: true }
     case ERROR : return { ...state, loading: false, toastActivate: true, toastMessage: payload, toastStatus: "error"}
-    case AUTH_USER_LOGIN : return { ...state, login: true, loading: false, toastActivate: true, toastMessage: payload, toastStatus: "success"}
+    case AUTH_USER_LOGIN : return { ...state, login: true, loading: false, toastActivate: true, toastMessage: payload?.message, toastStatus: "success", userDetails: payload?.userDetails, token: payload?.token}
     case AUTH_USER_SIGNUP : return { ...state, signup: true, loading: false, toastActivate: true, toastMessage: payload, toastStatus: "success"}
     case TOAST_CLEANER : return {...state, toastMessage: "", toastActivate: false, toastStatus: "error"}
     default: return state;

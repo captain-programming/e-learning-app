@@ -1,16 +1,14 @@
 import * as api from "../../API";
 import { AUTH_USER_LOGIN, AUTH_USER_SIGNUP, ERROR, LOADING, TOAST_CLEANER } from "./types";
 
-export const userLogin = (crds, fun) => async(dispatch)=>{
+export const userLogin = (crds) => async(dispatch)=>{
   try{
     let data = await api.loginApi(crds);
     if(data?.status===200){
-      fun.setFormData({email: "", password: ""});
-      fun.homeFun()
       dispatch({type: AUTH_USER_LOGIN, payload: data?.data})
     };
   }catch(err){
-    console.log(err);
+    dispatch({type: ERROR, payload: err.response.data || err?.message})
   }
 }
 
